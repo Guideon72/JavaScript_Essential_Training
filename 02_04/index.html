@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Module demo</title>
+    <!-- Important note: Putting objects in to JS modules removes them from the scope of your html; making those objects unavailable for manipulation in the browser itself-->
     <script type="module" src="backpack.js"></script> <!-- declaring js modules automatically sets the 'deferred' flag in order to ensure all modules are present in case of dependencies -->
     <script type="module" src="script.js"></script> <!-- In order to use js modules, they must be declared by type in the associated html file(s) -->
   </head>
