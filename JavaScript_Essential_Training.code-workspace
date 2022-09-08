@@ -5,6 +5,8 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "d:"
+		"liveServer.settings.multiRootWorkspaceName": "d:",
+		"editor.formatOnSaveMode": "modificationsIfAvailable",
+		"editor.formatOnSave": true
 	}
 }
