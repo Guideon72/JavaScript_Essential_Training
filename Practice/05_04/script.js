@@ -2,11 +2,6 @@
  * Note: This file is intentionally empty.
  * You can use it to test your skills at traversing the DOM using JavaScript.
  */
-
-
-
-
-//Find and click the Open lid button for Frog Backpack. change Lid status to 'open'
 /*const siteContent = `
 <header class="siteheader">
       <div class="site-title">BackpackPacker</div>
