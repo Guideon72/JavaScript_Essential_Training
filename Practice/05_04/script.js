@@ -6,8 +6,6 @@
 
 
 
-//Find and click the Update button for Left Strap length for Everyday Backpack; set Strap lengths to 42 inches
-
 //Find and click the Open lid button for Frog Backpack. change Lid status to 'open'
 /*const siteContent = `
 <header class="siteheader">
@@ -124,4 +122,8 @@ console.log(bPackVolume.innerText);
 
 bPackVolume.innerText = "20l";
 console.log(bPackVolume.innerText);
+
+//Find and click the Update button for Right Strap length for Everyday Backpack; set Strap lengths to 42 inches
+const activeButton = document.querySelectorAll("button")[1];
+activeButton.click();
 
