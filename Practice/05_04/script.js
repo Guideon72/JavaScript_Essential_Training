@@ -4,12 +4,12 @@
  */
 
 
-//Set the Volume of Everyday Backpack from 30l to 20l
+
 
 //Find and click the Update button for Left Strap length for Everyday Backpack; set Strap lengths to 42 inches
 
 //Find and click the Open lid button for Frog Backpack. change Lid status to 'open'
-const siteContent = `
+/*const siteContent = `
 <header class="siteheader">
       <div class="site-title">BackpackPacker</div>
       <div class="site-description">All backpack packing, all the time.</div>
@@ -109,12 +109,19 @@ const siteContent = `
       </p>
     </footer>`;
 
-document.body.innerHTML = siteContent;
+document.body.innerHTML = siteContent; */
 
-//Find the paragraph under 'A pack for every purpose' and change the text to blue
-const paragraph = document.querySelectorAll("p")[0];  //Used All to get all p tags and [0] to act on only the first element in the list
-paragraph.style.color = 'blue';
+//Find the first paragraph's text and change to blue
+const paragraph1 = document.querySelectorAll("p")[0];  //Used All to get all p tags and [0] to act on only the first element in the list
+paragraph1.style.color = 'blue';
 
 const paragraph2 = document.querySelectorAll("p")[1]; //Used All to get all p tags and [1] to act on only the second element in the list
 paragraph2.style.color = "orange";
+
+//Set the Volume of Everyday Backpack from 30l to 20l
+const bPackVolume = document.querySelector('main li[class="feature backpack__volume"]').childNodes[1];
+console.log(bPackVolume.innerText);
+
+bPackVolume.innerText = "20l";
+console.log(bPackVolume.innerText);
 
