@@ -17,9 +17,7 @@ backpacks.forEach((pack) => {pack.classList.add("accessory")});
 //remove the accessory class from the Frog Backpack and change text of the name to green
 const pack02 = document.querySelector("#pack02");
 pack02.classList.remove("accessory");
-pack02.getElementsByClassName("backpack__name")[0].setAttribute("style", "color: green");
-//frog.getElementsByClassName("backpack__name")[0].setAttribute("style", "color: red")
-
-//let pack02Name = document.querySelector("#pack02 .backpack__name");
-//pack02Name.setAttribute("style", "color: green");
+pack02
+  .getElementsByClassName("backpack__name")[0]
+  .setAttribute("style", "color: green");
 
