@@ -9,6 +9,7 @@
  */
 
 import Backpack from "./Backpack.js";
+import TopNav from "./topNav.js";
 
 const everydayPack = new Backpack(
   "Everyday Backpack",
@@ -20,6 +21,14 @@ const everydayPack = new Backpack(
   false,
   "December 5, 2018 15:00:00 PST",
   "../assets/images/everyday.svg"
+);
+
+const navBar = new TopNav(
+  "Our Products",
+  "Our Services",
+  "Our Company",
+  "Our People",
+  "Contact Us"
 );
 
 const content = `
@@ -60,3 +69,31 @@ newArticle.setAttribute("id", "everyday");
 newArticle.innerHTML = content;
 
 main.append(newArticle);
+// Separator////////////////////////////////////////////////////////////////////////////////////////
+
+const NavContent = `
+<ul class="linkList" style="list-style-type: none">
+  <li><a href = #>${navBar.products}</a></li>
+  <li><a href = #>${navBar.services}</a></li>
+  <li><a href = #>${navBar.company}</a></li>
+  <li><a href = #>${navBar.people}</a></li>
+  <li><a href = #>${navBar.contact}</a></li>
+  </ul>
+`;
+
+const header = document.querySelector(".siteheader");
+const newElement = document.createElement("div");
+
+newElement.classList.add("divNav");
+newElement.setAttribute("id", "newNavElement");
+
+newElement.innerHTML = NavContent;
+
+header.parentNode.insertBefore(newElement, header);
+
+console.log(document.querySelector("#newNavElement ul"));
+
+
+
+
+
