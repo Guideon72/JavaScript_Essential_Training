@@ -23,6 +23,7 @@ const everydayPack = new Backpack(
   "../assets/images/everyday.svg"
 );
 
+//build new navigation element
 const navBar = new TopNav(
   "Our Products",
   "Our Services",
@@ -71,8 +72,9 @@ newArticle.innerHTML = content;
 main.append(newArticle);
 // Separator////////////////////////////////////////////////////////////////////////////////////////
 
+//Define  the template information to insert into the document
 const NavContent = `
-<ul class="linkList" style="list-style-type: none">
+<ul>
   <li><a href = #>${navBar.products}</a></li>
   <li><a href = #>${navBar.services}</a></li>
   <li><a href = #>${navBar.company}</a></li>
@@ -81,18 +83,26 @@ const NavContent = `
   </ul>
 `;
 
+//Insert the new element in to the document; intended to appear before the Header, in this case
 const header = document.querySelector(".siteheader");
 const newElement = document.createElement("div");
-
-newElement.classList.add("divNav");
-newElement.setAttribute("id", "newNavElement");
-
 newElement.innerHTML = NavContent;
-
 header.parentNode.insertBefore(newElement, header);
 
-console.log(document.querySelector("#newNavElement ul"));
+//Add classes, elements and attributes to the new element
+newElement.classList.add("linkList");
+newElement.setAttribute("id", "newNavElement");
+newElement
+  .querySelector("#newNavElement ul")
+  .setAttribute("style", "list-style-type: none; background-color: black");
 
+//Use classes, elements and attributes to style and display the new element (top nav bar, in this case)
+const menuItem = newElement.querySelectorAll("#newNavElement li");
+menuItem.forEach((item) => item.setAttribute("style", "display: inline; background-color: blue"));
+
+const menuLinks = newElement.querySelectorAll("a");
+menuLinks.forEach((link) => link.setAttribute("style", "color: red"));
+console.log(menuLinks);
 
 
 
