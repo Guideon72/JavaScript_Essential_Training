@@ -102,7 +102,7 @@ menuItem.forEach((item) => item.setAttribute("style", "display: inline; backgrou
 
 const menuLinks = newElement.querySelectorAll("a");
 menuLinks.forEach((link) => link.setAttribute("style", "color: red"));
-console.log(menuLinks);
+
 
 
 
