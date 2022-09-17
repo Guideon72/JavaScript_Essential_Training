@@ -12,24 +12,58 @@ const book1 = new Book(
   "Sam I Am",
   "Thriller",
   "Our House Publishing",
-  false,
-  true
+  "Available",
+  "Unread"
 );
 
-book1.setAvailable(false);
+const book2 = new Book(
+  "Book Two",
+  "Blue Eggs & Ham",
+  "Cooking",
+  "Baseline Pub Group",
+  "Available",
+  "Unread"
+);
 
-const content = `
-<article class=book id=firstBook>
-  <h3>TITLE: ${book1.Title}</h3>
-    <ul class=detailList>
-      <li>Author: ${book1.Author}</li>
-      <li>Publisher: ${book1.Publisher}</li>
-      <li>Availability: ${book1.bAvailable}</li>
-    </ul>
-  <button class=button>Checkout</button>
-</article>
-`;
+const addBook = function (currentBook) {
+  const newArticle = document.createElement("article");
+  newArticle.innerHTML = `
+    <article class=book id=firstBook>
+      <h3>TITLE: ${currentBook.Title}</h3>
+        <ul class=detailList>
+          <li>Author: ${currentBook.Author}</li>
+          <li>Publisher: ${currentBook.Publisher}</li>
+          <li>Availability: ${currentBook.bAvailable}</li>
+          <li>Read: ${currentBook.bUnread}</li>
+        </ul>
+      <button type="button" id="clickMe">Check Out</button>
+    </article>
+  `;
+  return newArticle;
+};
+
+function checkOut(state) {
+  if (state == true) {
+    book1.setAvailable(true);
+  } else {
+    book1.setAvailable(false);
+  }
+}
+
+const reader = (state) => {
+  if (state == true) {
+    book2.setUnread(true);
+  } else {
+    book2.setUnread(false);
+  }
+};
+
+checkOut(false);
+reader(false);
 
 const main = document.querySelector("main");
-main.innerHTML = content;
+main.append(addBook(book1));
+main.append(addBook(book2));
+
+
 

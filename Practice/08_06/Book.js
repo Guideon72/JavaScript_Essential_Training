@@ -32,8 +32,12 @@ class Book {
     }
   }
 
-  setUnread(isUnread) {
-    this.bUnread = isUnread;
+  setUnread(bUnread) {
+    if (bUnread == true) {
+      this.bUnread = "You have not read this book.";
+    } else {
+      this.bUnread = "You have read this book and should check out another.";
+    }
   }
 }
 
