@@ -24,6 +24,8 @@ const frogpack = {
   },
   lidOpen: false,
   image: "../../assets/images/frog.svg",
+  description:
+    "The description of this object goes here.  A green, frog backpack, in this case.",
   toggleLid: function (lidStatus) {
     this.lidOpen = lidStatus;
   },
@@ -57,3 +59,28 @@ const content = `
       }</span></li>
     </ul>  
 `;
+
+const addFigure = (dataObj) => {
+  //create the Figure container to hold the image and description
+  let newFigure = document.createElement("figure");
+  //set up the image element to display on the page
+  let newImg = document.createElement("img");
+  newImg.setAttribute("src", dataObj.image);
+  newImg.setAttribute("alt", "alt text goes here");
+  //set up the figcaption element to display on the pgae
+  let newDesc = document.createElement("figcaption");
+  newDesc.innerText = dataObj.description;
+  //add the image and description to the Figure container
+  newFigure.append(newImg, newDesc);
+  //send the Figure container back to the calling location
+  return newFigure;
+};
+
+const addArticle = (targetPack) => {
+  let newArticle = document.createElement("article");
+  newArticle.innerHTML = content;
+  newArticle.prepend(addFigure(targetPack));
+  return newArticle;
+};
+
+document.querySelector("main").append(addArticle(frogpack));
