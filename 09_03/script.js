@@ -39,6 +39,21 @@ const backpackList = backpackObjectArray.map((backpack) => {
     <button class="lid-toggle">Open lid</button>
   `;
 
+  //define the objects that we want the event listener to attach to
+  const button = backpackArticle.querySelector(".lid-toggle");
+
+  //Get backpack status field in order to toggle Open/Closed
+  const status = backpackArticle.querySelector(".backpack__lid span");
+
+  //Use anonymous arrow function to define the event and behavior
+  button.addEventListener("click", (event) => {
+    console.log(event);
+    console.log(status.innerText);
+    status.innerText === "closed"
+      ? (status.innerText = "open")
+      : (status.innerText = "closed");
+  });
+
   return backpackArticle;
 });
 

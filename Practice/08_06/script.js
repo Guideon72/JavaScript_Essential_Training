@@ -25,24 +25,8 @@ const book2 = new Book(
   "Unread"
 );
 
-const addBook = function (currentBook) {
-  const newArticle = document.createElement("article");
-  newArticle.innerHTML = `
-    <article class=book id=firstBook>
-      <h3>TITLE: ${currentBook.Title}</h3>
-        <ul class=detailList>
-          <li>Author: ${currentBook.Author}</li>
-          <li>Publisher: ${currentBook.Publisher}</li>
-          <li>Availability: ${currentBook.bAvailable}</li>
-          <li>Read: ${currentBook.bUnread}</li>
-        </ul>
-      <button type="button" id="clickMe">Check Out</button>
-    </article>
-  `;
-  return newArticle;
-};
-
 function checkOut(state) {
+  console.log("checkOut method called");
   if (state == true) {
     book1.setAvailable(true);
   } else {
@@ -60,6 +44,30 @@ const reader = (state) => {
 
 checkOut(false);
 reader(false);
+
+const addBook = function (currentBook) {
+  const newArticle = document.createElement("article");
+  newArticle.innerHTML = `
+    <article class=book id=firstBook>
+      <h3>TITLE: ${currentBook.Title}</h3>
+        <ul class=detailList>
+          <li class="Author">Author: ${currentBook.Author}</li>
+          <li class="Publisher">Publisher: ${currentBook.Publisher}</li>
+          <li class="Availability">Availability: ${currentBook.bAvailable}</li>
+          <li>Read: ${currentBook.bUnread}</li>
+        </ul>
+      <button type="button" id="clickMe">Check Out</button>
+    </article>
+  `;
+
+  //define the check out button for an event listener
+  const button = newArticle.querySelector("#clickMe");
+  const status = newArticle.querySelector(".Availability");
+  button.addEventListener("click", checkOut, false);
+  return newArticle;
+};
+
+
 
 const main = document.querySelector("main");
 main.append(addBook(book1));
